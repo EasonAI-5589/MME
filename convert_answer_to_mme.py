@@ -41,15 +41,15 @@ if __name__ == "__main__":
     args = get_args()
 
     GT = get_gt(
-        data_path='/root/autodl-tmp/DoubleAttentionVLM/playground/data/eval/MME/MME_Benchmark_release_version'
+        data_path='MME_Benchmark_release_version'
     )
 
     experiment = args.experiment
 
-    result_dir = os.path.join('/root/autodl-tmp/DoubleAttentionVLM/playground/data/eval/MME/eval_tool', 'answers', experiment)
+    result_dir = os.path.join('./playground/data/eval/MME/eval_tool', 'answers', experiment)
     os.makedirs(result_dir, exist_ok=True)
 
-    answers = [json.loads(line) for line in open(os.path.join('/root/autodl-tmp/DoubleAttentionVLM/playground/data/eval/MME/answers', f'{experiment}.jsonl'))]
+    answers = [json.loads(line) for line in open(os.path.join('answers', f'{experiment}.jsonl'))]
 
     results = defaultdict(list)
     for answer in answers:
